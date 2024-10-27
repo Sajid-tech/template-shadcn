@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 import Page from "../dashboard/page";
 import axios from "axios";
 import MUIDataTable from "mui-datatables";
-import { createTheme, CssBaseline } from "@mui/material";
-import { ThemeProvider } from "@mui/material";
 import { Delete, Edit } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -119,24 +117,36 @@ const BrandList = () => {
     print: false,
   };
 
-  const darkTheme = createTheme({
-    palette: {
-      mode: "dark",
-      background: {
-        default: "210 40% 98%", // Dark background
-        paper: "#18181B", // Table background
-      },
-      text: {
-        primary: "#ffffff", // White text
-      },
-    },
-  });
+ 
 
   return (
     <Page>
-      <ThemeProvider theme={darkTheme}>
-        <CssBaseline />
-        <div>
+     
+        <div className="bg-gray-100 p-4 border-2 border-dashed border-green-500 rounded-lg">
+          <MUIDataTable
+            title="Brand List"
+            data={brandData ? brandData : []}
+            columns={columns}
+            options={options}
+          />
+        </div>
+        <div className="bg-gray-100 p-4 mt-4 border-2 border-dashed border-green-500 rounded-lg">
+          <MUIDataTable
+            title="Brand List"
+            data={brandData ? brandData : []}
+            columns={columns}
+            options={options}
+          />
+        </div>
+        <div className="bg-gray-100 p-4 mt-4 border-2 border-dashed border-green-500 rounded-lg">
+          <MUIDataTable
+            title="Brand List"
+            data={brandData ? brandData : []}
+            columns={columns}
+            options={options}
+          />
+        </div>
+        <div className="bg-gray-100 p-4 mt-4 border-2 border-dashed border-green-500 rounded-lg">
           <MUIDataTable
             title="Brand List"
             data={brandData ? brandData : []}
@@ -159,7 +169,7 @@ const BrandList = () => {
             </SheetContent>
           </Sheet>
         )}
-      </ThemeProvider>
+      
     </Page>
   );
 };
